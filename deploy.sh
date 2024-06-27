@@ -1,16 +1,16 @@
 #!/bin/bash
 # Update and install Java
-yum update -y
-yum install -y java-1.8.0-openjdk-devel
+sudo yum update -y
+sudo yum install -y java-1.8.0-openjdk-devel
 
 # Create the application directory
-mkdir -p /opt/java-app
+sudo mkdir -p /opt/java-app
 
 # Move to the application directory
 cd /opt/java-app
 
 # Create the HelloWorld.java file
-cat <<EOF > HelloWorld.java
+sudo cat <<EOF > HelloWorld.java
 import java.io.IOException;
 import java.io.OutputStream;
 import com.sun.net.httpserver.HttpServer;
@@ -41,7 +41,7 @@ public class HelloWorld {
 EOF
 
 # Compile the Java application
-javac HelloWorld.java
+sudo javac HelloWorld.java
 
 # Run the Java application
-nohup java HelloWorld > /var/log/java-app.log 2>&1 &
+sudo nohup java HelloWorld > /var/log/java-app.log 2>&1 &
